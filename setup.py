@@ -1,7 +1,6 @@
 from setuptools import setup, find_packages
 import os
 
-
 ROOT = os.path.abspath(os.path.dirname(__file__))
 VERSION = '1.0.0'
 
@@ -17,7 +16,8 @@ setup(
     install_requires=get_requirements('requirements.txt'),
     tests_require=get_requirements('test-requirements.txt'),
     version=VERSION,
-    description="suppose that you've forgot to change korean/english input method or you cannot change input method. this converts hangul to english, english to hangul.",
+    description="suppose that you've forgot to change korean/english input method or you cannot change input method."
+                "this converts hangul to english, english to hangul.",
     long_description=open(os.path.join(ROOT, 'README.md')).read(),
     long_description_content_type='text/markdown',
     author='Jacky',
