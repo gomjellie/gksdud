@@ -30,6 +30,10 @@ class BoilerPythonTest(unittest.TestCase):
 
         :return:
         """
+        self.assertEqual(
+            gksdud.utils.compose(['ㅎ', 'ㅏ', 'ㄴ']),
+            "한",
+        )
 
     def test_py_util_decompose(self):
         """
@@ -37,6 +41,10 @@ class BoilerPythonTest(unittest.TestCase):
 
         :return:
         """
+        self.assertEqual(
+            gksdud.utils.decompose("한"),
+            ['ㅎ', 'ㅏ', 'ㄴ'],
+        )
 
 
 if __name__ == '__main__':
