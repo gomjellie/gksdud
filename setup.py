@@ -11,25 +11,25 @@ def get_requirements(filename):
 
 
 setup(
-    name='boilerplate',
+    name='gksdud',
     packages=find_packages(),
     include_package_data=True,
     install_requires=get_requirements('requirements.txt'),
     tests_require=get_requirements('test-requirements.txt'),
     version=VERSION,
-    description='YOUR DESCRIPTION HERE',
+    description="suppose that you've forgot to change korean/english input method or you cannot change input method. this converts hangul to english, english to hangul.",
     long_description=open(os.path.join(ROOT, 'README.md')).read(),
     long_description_content_type='text/markdown',
-    author='YOUR NAME HERE',
-    author_email='YOUR_ID@EMAIL.ADDRESS',
-    url='https://github.com/YOUR_ID/REPOSITORY_NAME',
-    download_url='https://pypi.python.org/pypi/REPOSITORY_NAME',
+    author='Jacky',
+    author_email='gomjellie@gmail.com',
+    url='https://github.com/gomjellie/gksdud',
+    download_url='https://pypi.python.org/pypi/gksdud',
     license='LICENSE HERE',
     platforms="Posix; MacOS X; Windows",
     test_suite='nose.collector',
     entry_points='''
         [console_scripts]
-        boiler=boilerplate.scripts.cli:main
+        gksdud=gksdud.scripts.cli:main
     ''',
     classifiers=[
         'Development Status :: 5 - Production/Stable',

@@ -1,7 +1,7 @@
 import unittest
 from click.testing import CliRunner
 
-import boilerplate
+import gksdud
 
 
 class BoilerCliTest(unittest.TestCase):
@@ -10,74 +10,30 @@ class BoilerCliTest(unittest.TestCase):
 
     @classmethod
     def output2str(cls, output):
-        return str(output.encode('ascii', 'ignore').decode("utf-8")).replace('\n', '')
+        return output.replace('\n', '')
 
-    def test_single_print(self):
+    def test_cli_kor2eng(self):
         """
-        Test output of CLI Command boiler single_print --string="hello" equals "hello"
+        Test output of CLI Command gksdud cli_kor2eng --string="한영" equals "gksdud"
 
         """
 
-        result = self.runner.invoke(boilerplate.cli.single_print, ["--string", "hello"])
+        result = self.runner.invoke(gksdud.cli.cli_kor2eng, ["--string", "한영"])
         self.assertEqual(
             self.output2str(result.output),
-            "hello",
+            "gksdud",
         )
 
-    def test_multiple_print(self):
+    def test_cli_eng2kor(self):
         """
-        Test output of CLI Command boiler multiple_print --string="hello" --string="world" equals "hello world"
+        Test output of CLI Command gksdud cli_eng2kor --string="dudgks" equals "영한"
 
         """
 
-        result = self.runner.invoke(boilerplate.cli.multiple_print, ["--string", "hello", "--string", "world"])
+        result = self.runner.invoke(gksdud.cli.cli_eng2kor, ["--string", "dudgks"])
         self.assertEqual(
             self.output2str(result.output),
-            "hello world",
-        )
-
-    def test_multiple_print_with_various_option(self):
-        """
-        Test output of CLI Command boiler multiple_print --string="hello" -sworld equals "hello world"
-
-        """
-
-        result = self.runner.invoke(boilerplate.cli.multiple_print, ["--string", "hello", "-s", "world"])
-        self.assertEqual(
-            self.output2str(result.output),
-            "hello world",
-        )
-
-    def test_login_success(self):
-        """
-        Test output of CLI Command boiler login --id="adam" --password="smith" return success dictionary
-
-        """
-
-        result = self.runner.invoke(boilerplate.cli.login, ["--id", "adam", "--password", "smith"])
-        self.assertEqual(
-            self.output2str(result.output),
-            str({
-                'result': 'success',
-                'msg': 'log in success',
-                'status-code': 200,
-            })
-        )
-
-    def test_login_fail(self):
-        """
-        Test output of CLI Command boiler login --id="black" --password="smith" return fail dictionary
-
-        :return:
-        """
-        result = self.runner.invoke(boilerplate.cli.login, ["--id", "black", "--password", "smith"])
-        self.assertEqual(
-            self.output2str(result.output),
-            str({
-                'result': 'fail',
-                'msg': 'login failed!',
-                'status-code': 500,
-            })
+            "영한",
         )
 
 

@@ -1,6 +1,6 @@
 import unittest
 
-import boilerplate
+import gksdud
 
 
 class BoilerPythonTest(unittest.TestCase):
@@ -8,37 +8,21 @@ class BoilerPythonTest(unittest.TestCase):
         Sample Test
     """
 
-    def test_print_string(self):
+    def test_py_kor2eng(self):
         """
-        Test result of python script boilerplate.print_string("print") equals "print"
-
-        """
-
-        self.assertEqual(boilerplate.print_string("print"), "print")
-
-    def test_login(self):
-        """
-        Test result of python script boilerplate.login("adam", "smith") equals success dictionary
+        Test result of python script gksdud.kor2eng("한영") equals "gksdud"
 
         """
 
-        self.assertEqual(boilerplate.login("adam", "smith"), {
-            'result': 'success',
-            'msg': 'log in success',
-            'status-code': 200,
-        })
+        self.assertEqual(gksdud.kor2eng("한영"), "gksdud")
 
-    def test_login_fail(self):
+    def test_py_eng2kor(self):
         """
-        Test result of python script boilerplate.login("adam", "smith") equals success dictionary
+        Test result of python script gksdud.eng2kor("dudgks") equals "영한"
 
         """
 
-        self.assertNotEqual(boilerplate.login("black", "smith"), {
-            'result': 'success',
-            'msg': 'log in success',
-            'status-code': 200,
-        })
+        self.assertEqual(gksdud.kor2eng("dudgks"), "영한")
 
 
 if __name__ == '__main__':
