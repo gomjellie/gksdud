@@ -10,7 +10,7 @@ class BoilerPythonTest(unittest.TestCase):
 
     def test_py_kor2eng(self):
         """
-        Test result of python script gksdud.kor2eng("한영") equals "gksdud"
+        gksdud.kor2eng("한영") should be "gksdud"
 
         """
 
@@ -18,11 +18,25 @@ class BoilerPythonTest(unittest.TestCase):
 
     def test_py_eng2kor(self):
         """
-        Test result of python script gksdud.eng2kor("dudgks") equals "영한"
+        gksdud.eng2kor("dudgks") should be "영한"
 
         """
 
         self.assertEqual(gksdud.kor2eng("dudgks"), "영한")
+
+    def test_py_util_compose(self):
+        """
+        gksdud.utils.compose(['ㅎ', 'ㅏ', 'ㄴ']) should be "한"
+
+        :return:
+        """
+
+    def test_py_util_decompose(self):
+        """
+        gksdud.utils.decompose("한") should be  ['ㅎ', 'ㅏ', 'ㄴ']
+
+        :return:
+        """
 
 
 if __name__ == '__main__':
