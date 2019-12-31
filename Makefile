@@ -1,8 +1,5 @@
 
-venv:
-	virtualenv venv -p python3
-
-all: venv
+all:
 	. ./venv/bin/activate; pip install .;
 
 test:
