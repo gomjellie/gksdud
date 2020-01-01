@@ -59,10 +59,24 @@ class UtilsTest(unittest.TestCase):
 
         :return:
         """
-        self.assertEqual(
-            gksdud.utils.decompose("한"),
-            ['ㅎ', 'ㅏ', 'ㄴ'],
-        )
+        test_inputs = [
+            "한", "글",
+            "티", "모",
+            "뷁",
+        ]
+
+        test_expects = [
+            ["ㅎ", "ㅏ", "ㄴ"],
+            ["ㄱ", "ㅡ", "ㄹ"],
+            ["ㅌ", "ㅣ"],
+            ["ㅁ", "ㅗ"],
+            ["ㅂ", "ㅞ", "ㄺ"]
+        ]
+
+        for test_input, test_expect in zip(test_inputs, test_expects):
+            self.assertEqual(
+                gksdud.utils.decompose(test_input), test_expect
+            )
 
     def test_py_util_compose_sentence(self):
         test_inputs = [

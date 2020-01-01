@@ -45,7 +45,7 @@ def decompose(complete_ko):
     initial = (unicode - KOREAN_OFF_SET) // INITIAL_OFF_SET
     medial = ((unicode - KOREAN_OFF_SET) - (INITIAL_OFF_SET * initial)) // MEDIAL_OFF_SET
     final = (unicode - KOREAN_OFF_SET) - (INITIAL_OFF_SET * initial) - MEDIAL_OFF_SET * medial
-    return [INITIAL[initial], MEDIAL[medial], FINAL[final]]
+    return [_ for _ in [INITIAL[initial], MEDIAL[medial], FINAL[final]] if _ is not None]
 
 
 def is_complete_ko_word(candidate):
