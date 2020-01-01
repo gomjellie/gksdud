@@ -3,9 +3,9 @@ import unittest
 import gksdud
 
 
-class BoilerPythonTest(unittest.TestCase):
+class InterfaceTest(unittest.TestCase):
     """
-        Sample Test
+        Interface Test
     """
 
     def test_py_kor2eng(self):
@@ -24,6 +24,8 @@ class BoilerPythonTest(unittest.TestCase):
 
         self.assertEqual(gksdud.kor2eng("dudgks"), "영한")
 
+
+class UtilsTest(unittest.TestCase):
     def test_py_util_compose(self):
         """
         gksdud.utils.compose(['ㅎ', 'ㅏ', 'ㄴ']) should be "한"

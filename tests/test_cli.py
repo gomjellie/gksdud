@@ -4,7 +4,7 @@ from click.testing import CliRunner
 import gksdud
 
 
-class BoilerCliTest(unittest.TestCase):
+class CliTest(unittest.TestCase):
     def setUp(self):
         self.runner = CliRunner()
 
