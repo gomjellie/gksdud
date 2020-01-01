@@ -8,6 +8,7 @@ class InterfaceTest(unittest.TestCase):
         Interface Test
     """
 
+    @unittest.skip("밑의 utils 가 먼저 구현되어야 가능함")
     def test_py_kor2eng(self):
         """
         gksdud.kor2eng("한영") should be "gksdud"
@@ -16,6 +17,7 @@ class InterfaceTest(unittest.TestCase):
 
         self.assertEqual(gksdud.kor2eng("한영"), "gksdud")
 
+    @unittest.skip("밑의 utils 가 먼저 구현되어야 가능함")
     def test_py_eng2kor(self):
         """
         gksdud.eng2kor("dudgks") should be "영한"
@@ -46,6 +48,18 @@ class UtilsTest(unittest.TestCase):
         self.assertEqual(
             gksdud.utils.decompose("한"),
             ['ㅎ', 'ㅏ', 'ㄴ'],
+        )
+
+    def test_py_util_compose_sentence(self):
+        self.assertEqual(
+            gksdud.utils.compose_sentence(["ㅁ", "ㅝ", "ㄴ", "", "ㄷ", "ㅔ", "", "ㅋ", "ㅋ", "ㅋ"]),
+            "뭔데ㅋㅋㅋ"
+        )
+
+    def test_py_util_decompose_sentence(self):
+        self.assertEqual(
+            gksdud.utils.decompose_sentence("뭔데ㅋㅋㅋ"),
+            ["ㅁ", "ㅝ", "ㄴ", "", "ㄷ", "ㅔ", "", "ㅋ", "ㅋ", "ㅋ"]
         )
 
 

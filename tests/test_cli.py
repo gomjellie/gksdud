@@ -12,6 +12,7 @@ class CliTest(unittest.TestCase):
     def output2str(cls, output):
         return output.replace('\n', '')
 
+    @unittest.skip("kor2eng 가 먼저 구현되어야 가능함")
     def test_cli_kor2eng(self):
         """
         Test output of CLI Command gksdud cli_kor2eng --string="한영" equals "gksdud"
@@ -24,6 +25,7 @@ class CliTest(unittest.TestCase):
             "gksdud",
         )
 
+    @unittest.skip("eng2kor 가 먼저 구현되어야 가능함")
     def test_cli_eng2kor(self):
         """
         Test output of CLI Command gksdud cli_eng2kor --string="dudgks" equals "영한"
