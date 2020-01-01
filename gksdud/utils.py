@@ -10,6 +10,16 @@ def compose(scattered_ko):
     :type scattered_ko: list
     :return: 완성된 한 글자
     """
+
+    scattered_ko += [None, None]
+    scattered_ko = scattered_ko[:3]
+
+    for _ in range(3):
+        if scattered_ko[_] == '':
+            scattered_ko[_] = None
+        if scattered_ko[_] in COMPLEX:
+            scattered_ko[_] = COMPLEX[scattered_ko[_]]
+
     return chr(
         KOREAN_OFF_SET
         + INITIAL.index(scattered_ko[0]) * INITIAL_OFF_SET
