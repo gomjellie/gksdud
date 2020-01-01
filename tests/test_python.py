@@ -84,6 +84,7 @@ class UtilsTest(unittest.TestCase):
             ["ㅇ", "ㅗ", "", "ㄴ", "ㅡ", "ㄹ", "", "ㅇ", "ㅢ", "", " ", "ㄴ", "ㅏ", "ㄹ", "", "ㅆ", "ㅣ", ""],
             ["ㅇ", "ㅙ", "", "?", "!"],
         ]
+
         test_expects = [
             "뭔데ㅋㅋㅋ",
             "오늘의 날씨",
@@ -97,10 +98,23 @@ class UtilsTest(unittest.TestCase):
             )
 
     def test_py_util_decompose_sentence(self):
-        self.assertEqual(
-            gksdud.utils.decompose_sentence("뭔데ㅋㅋㅋ"),
-            ["ㅁ", "ㅝ", "ㄴ", "", "ㄷ", "ㅔ", "", "ㅋ", "ㅋ", "ㅋ"]
-        )
+        test_inputs = [
+            "뭔데ㅋㅋㅋ",
+            "오늘의 날씨",
+            "왜?!",
+        ]
+
+        test_expects = [
+            ["ㅁ", "ㅝ", "ㄴ", "", "ㄷ", "ㅔ", "", "ㅋ", "ㅋ", "ㅋ"],
+            ["ㅇ", "ㅗ", "", "ㄴ", "ㅡ", "ㄹ", "", "ㅇ", "ㅢ", "", " ", "ㄴ", "ㅏ", "ㄹ", "", "ㅆ", "ㅣ", ""],
+            ["ㅇ", "ㅙ", "", "?", "!"],
+        ]
+
+        for test_input, test_expect in zip(test_inputs, test_expects):
+            self.assertEqual(
+                gksdud.utils.decompose_sentence(test_input),
+                test_expect
+            )
 
 
 if __name__ == '__main__':
